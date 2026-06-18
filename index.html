@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆市开州中学</title>
+    <style>
+        :root {
+            --primary: #8B1A2B;
+            --primary-light: #A52A3B;
+            --gold: #C4A265;
+            --gold-light: #D4B87A;
+            --bg: #FDF8F4;
+            --bg-card: #FFFFFF;
+            --text: #2C2C2C;
+            --text-secondary: #5A5A5A;
+            --text-light: #7A7A7A;
+            --border: #E8E0D8;
+            --shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.10);
+            --radius: 14px;
+            --radius-sm: 10px;
+            --max-width: 520px;
+            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #F5F0EB;
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* 主容器 */
+        .main-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background: var(--bg);
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+        }
+
+        /* ========== Hero 头部 ========== */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 68%;
+            overflow: hidden;
+            background: #3a1a1a;
+        }
+        .hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s ease;
+        }
+        .hero:hover img {
+            transform: scale(1.04);
+        }
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 55%;
+            background: linear-gradient(to top,
+                    rgba(60, 15, 20, 0.92) 0%,
+                    rgba(60, 15, 20, 0.55) 35%,
+                    rgba(60, 15, 20, 0.15) 65%,
+                    transparent 100%);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .hero-content {
+            position: absolute;
+            bottom: 28px;
+            left: 24px;
+            right: 24px;
+            z-index: 3;
+            color: #fff;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: #3a1a1a;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 4px;
+        }
+        .hero-subtitle {
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            opacity: 0.9;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+        }
+        .hero-dot-decoration {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            z-index: 3;
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-dot-decoration::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border-radius: 50%;
+            animation: heroDotPulse 2s ease-in-out infinite;
+        }
+        @keyframes heroDotPulse {
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.6);
+            }
+        }
+
+        /* ========== 内容区域 ========== */
+        .content {
+            padding: 20px 16px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* ========== 简介卡片 ========== */
+        .intro-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 22px 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .intro-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--gold));
+            border-radius: 0 2px 2px 0;
+        }
+        .intro-card .intro-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            padding-left: 4px;
+        }
+        .intro-card .intro-highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .intro-stats {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+            padding-left: 4px;
+            flex-wrap: wrap;
+        }
+        .intro-stat {
+            flex: 1;
+            min-width: 70px;
+            text-align: center;
+            background: #FDF8F4;
+            border-radius: var(--radius-sm);
+            padding: 12px 8px;
+        }
+        .intro-stat .stat-num {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .intro-stat .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-top: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        /* ========== 章节标题 ========== */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 2px;
+            padding: 0 2px;
+        }
+        .section-title .icon-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .section-title .title-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.03em;
+        }
+        .section-title .title-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            min-width: 20px;
+        }
+
+        /* ========== 图片卡片（通用） ========== */
+        .image-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition);
+            position: relative;
+        }
+        .image-card:active {
+            transform: scale(0.98);
+        }
+        .image-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        .image-card .img-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #e8e4df;
+        }
+        .image-card .img-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .image-card:hover .img-wrapper img {
+            transform: scale(1.03);
+        }
+        .image-card .img-caption {
+            padding: 12px 16px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.03em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .image-card .img-caption::before {
+            content: '';
+            width: 4px;
+            height: 14px;
+            background: var(--gold);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .image-card .img-zoom-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--transition);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .image-card .img-zoom-icon svg {
+            width: 15px;
+            height: 15px;
+            fill: #fff;
+        }
+        .image-card:hover .img-zoom-icon {
+            opacity: 1;
+        }
+
+        /* ========== 双列网格 ========== */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .grid-2 .image-card .img-wrapper {
+            aspect-ratio: 4/3;
+        }
+        .grid-2 .image-card .img-wrapper img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ========== 单列大图 ========== */
+        .single-image .img-wrapper {
+            aspect-ratio: 16/10;
+            max-height: 300px;
+        }
+        .single-image .img-wrapper img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ========== 刘帅铜像 - 特殊样式 ========== */
+        .liushuai-card {
+            background: linear-gradient(135deg, #FFFDF9 0%, #FFF9F0 100%);
+            border: 1px solid #E8D5B8;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+        .liushuai-card .img-wrapper {
+            aspect-ratio: 3/4;
+            max-height: 420px;
+            background: #f0ebe0;
+        }
+        .liushuai-card .img-wrapper img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+        .liushuai-card .liushuai-info {
+            padding: 18px 20px;
+            text-align: center;
+        }
+        .liushuai-card .liushuai-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.06em;
+            margin-bottom: 4px;
+        }
+        .liushuai-card .liushuai-desc {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            letter-spacing: 0.04em;
+            line-height: 1.6;
+        }
+        .liushuai-card .liushuai-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            padding: 4px 12px;
+            border-radius: 14px;
+            margin-bottom: 8px;
+        }
+
+        /* ========== 校训 & 办学理念 ========== */
+        .spirit-section {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .spirit-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+        .spirit-card .spirit-img-wrap {
+            width: 100%;
+            aspect-ratio: 16/7;
+            overflow: hidden;
+            background: #f5f1eb;
+            position: relative;
+        }
+        .spirit-card .spirit-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .spirit-card:hover .spirit-img-wrap img {
+            transform: scale(1.03);
+        }
+        .spirit-card .spirit-text-overlay {
+            padding: 16px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .spirit-card .spirit-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+        .spirit-card .spirit-content {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+            line-height: 1.5;
+        }
+        .spirit-card.motto {
+            border-left: 4px solid var(--primary);
+        }
+        .spirit-card.philosophy {
+            border-left: 4px solid var(--gold);
+        }
+        .spirit-card .spirit-decorative-line {
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            margin: 8px auto 0;
+            border-radius: 1px;
+        }
+
+        /* ========== 图片加载失败占位 ========== */
+        .img-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0ebe2;
+            color: #b8a99a;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            text-align: center;
+            padding: 20px;
+            min-height: 120px;
+        }
+        .img-fallback .fallback-icon {
+            font-size: 2rem;
+            margin-bottom: 6px;
+            display: block;
+            opacity: 0.6;
+        }
+
+        /* ========== 页脚 ========== */
+        .footer {
+            text-align: center;
+            padding: 24px 16px 32px;
+            color: var(--text-light);
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            border-top: 1px solid var(--border);
+            margin: 0 16px;
+        }
+        .footer .footer-line {
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 10px;
+            border-radius: 1px;
+        }
+
+        /* ========== Lightbox ========== */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .lightbox img {
+            max-width: 92vw;
+            max-height: 88vh;
+            object-fit: contain;
+            border-radius: 6px;
+            transform: scale(0.9);
+            transition: transform 0.35s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox.active img {
+            transform: scale(1);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            transition: background 0.2s;
+        }
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .lightbox-hint {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            pointer-events: none;
+        }
+
+        /* ========== 滚动动画 ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== 响应式 ========== */
+        @media (min-width: 600px) {
+            .main-container {
+                border-radius: 20px;
+                margin-top: 16px;
+                margin-bottom: 16px;
+            }
+            .hero {
+                border-radius: 20px 20px 0 0;
+            }
+            .content {
+                padding: 24px 20px 44px;
+                gap: 20px;
+            }
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            .grid-2 {
+                gap: 16px;
+            }
+            .spirit-card .spirit-content {
+                font-size: 1.4rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .main-container {
+                max-width: 600px;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+            .hero {
+                padding-bottom: 55%;
+            }
+        }
+        @media (max-width: 374px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .hero-subtitle {
+                font-size: 0.75rem;
+            }
+            .content {
+                padding: 14px 10px 28px;
+                gap: 14px;
+            }
+            .intro-stats {
+                gap: 8px;
+            }
+            .intro-stat {
+                padding: 10px 6px;
+            }
+            .intro-stat .stat-num {
+                font-size: 1.1rem;
+            }
+            .grid-2 {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- ==================== Hero 头部：学校大门 ==================== -->
+        <div class="hero" id="heroSection">
+            <img
+            src="https://www.cqkz.gov.cn/zwgk_238/zfxxgkml/ggqsydwxxgk/jy/202411/W020241119574663105309.png"
+            alt="重庆市开州中学大门"
+            loading="eager"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            >
+            <div class="img-fallback" style="display:none; position:absolute; inset:0; z-index:1;">
+                <span>
+                    <span class="fallback-icon">🏫</span>
+                    重庆市开州中学
+                </span>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-dot-decoration"></div>
+            <div class="hero-content">
+                <span class="hero-badge">重庆市重点中学</span>
+                <h1 class="hero-title">重庆市开州中学</h1>
+                <p class="hero-subtitle">Chongqing Kaizhou High School</p>
+            </div>
+        </div>
+
+        <!-- ==================== 内容区域 ==================== -->
+        <div class="content">
+
+            <!-- 学校简介 -->
+            <div class="intro-card fade-in">
+                <p class="intro-text">
+                    <span class="intro-highlight">重庆市开州中学</span>，创建于清光绪三十二年（1906年），是重庆市重点中学、重庆市首批示范高中。学校坐落于<span class="intro-highlight">刘伯承元帅</span>的故乡——重庆市开州区，秉承百年办学传统，为国家培养了大批优秀人才。
+                </p>
+                <div class="intro-stats">
+                    <div class="intro-stat">
+                        <div class="stat-num">1906</div>
+                        <div class="stat-label">建校年份</div>
+                    </div>
+                    <div class="intro-stat">
+                        <div class="stat-num">两百</div>
+                        <div class="stat-label">办学历史</div>
+                    </div>
+                    <div class="intro-stat">
+                        <div class="stat-num">市重点</div>
+                        <div class="stat-label">学校等级</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 航拍全景 -->
+            <div class="section-title fade-in">
+                <span class="icon-dot"></span>
+                <span class="title-text">校园航拍全景</span>
+                <span class="title-line"></span>
+            </div>
+            <div class="grid-2">
+                <div class="image-card fade-in" data-lightbox-img="https://so1.360tres.com/t01a922f6c48b73c62c.jpg">
+                    <div class="img-wrapper">
+                        <img
+                        src="https://so1.360tres.com/t01a922f6c48b73c62c.jpg"
+                        alt="开州中学航拍全景"
+                        loading="lazy"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="img-fallback" style="display:none; position:absolute; inset:0;">
+                            <span>
+                                <span class="fallback-icon">📷</span>
+                                航拍图一
+                            </span>
+                        </div>
+                        <div class="img-zoom-icon">
+                            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        </div>
+                    </div>
+                    <div class="img-caption">航拍校园全景（一）</div>
+                </div>
+                <div class="image-card fade-in" data-lightbox-img="https://files.deepseeksvc.com/api/file?file_id=7174849d-12ba-4a3a-a281-2980071ebff9&state=xy9zf9GWaMycGunRXw95yJUuCzZt99YDGhjDyUzho6BvURUfiJ4CrscRfUCmlpc22%2F73eS%2FBBwtaf4kwZSIwzIybALbTIgTn6Pk92KahR933YIqGJN3Ubextr9KzGzJnPF4b17lfEnlqwZSJeyCcmYWNw0IXA%2FTkE468goVWUhb00tFjMSt76ff6qmvJiWUD647u340y1yT4QFMxoCLcCLowCHpneECIucesTCkCX3HnC%2BCuy1%2FDnbGGeCBouabetwY7H1WWEKmZEJtjNr8bZmF4Gb64I8AOaFHwbinkw%2FtdJddB6sI%2FhIgNx%2BFj%2BOPrEFUeiihItWSWOcRJCY0gRttLNEJdw21tWZnEcEExeZigp9aNK%2FEkXX7r&ty=t">
+                    <div class="img-wrapper">
+                        <img
+                        src="https://files.deepseeksvc.com/api/file?file_id=7174849d-12ba-4a3a-a281-2980071ebff9&state=xy9zf9GWaMycGunRXw95yJUuCzZt99YDGhjDyUzho6BvURUfiJ4CrscRfUCmlpc22%2F73eS%2FBBwtaf4kwZSIwzIybALbTIgTn6Pk92KahR933YIqGJN3Ubextr9KzGzJnPF4b17lfEnlqwZSJeyCcmYWNw0IXA%2FTkE468goVWUhb00tFjMSt76ff6qmvJiWUD647u340y1yT4QFMxoCLcCLowCHpneECIucesTCkCX3HnC%2BCuy1%2FDnbGGeCBouabetwY7H1WWEKmZEJtjNr8bZmF4Gb64I8AOaFHwbinkw%2FtdJddB6sI%2FhIgNx%2BFj%2BOPrEFUeiihItWSWOcRJCY0gRttLNEJdw21tWZnEcEExeZigp9aNK%2FEkXX7r&ty=t"
+                        alt="开州中学航拍全景二"
+                        loading="lazy"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="img-fallback" style="display:none; position:absolute; inset:0;">
+                            <span>
+                                <span class="fallback-icon">📷</span>
+                                航拍图二
+                            </span>
+                        </div>
+                        <div class="img-zoom-icon">
+                            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        </div>
+                    </div>
+                    <div class="img-caption">航拍校园全景（二）</div>
+                </div>
+            </div>
+
+            <!-- 标志性建筑：刘帅铜像 -->
+            <div class="section-title fade-in">
+                <span class="icon-dot"></span>
+                <span class="title-text">标志性建筑</span>
+                <span class="title-line"></span>
+            </div>
+            <div class="liushuai-card fade-in single-image" data-lightbox-img="https://files.deepseeksvc.com/api/file?file_id=3a53c326-47c3-4ed1-a5b4-916a5b1326fc&state=YYxy25JL70obIDt%2Bvfd4EeQ6PPqD6ZHJhqIoCacL7B0jvgG3dP2tRMvADfiJYA%2FpsvVZhSSimsF9Rro5aJX0Vmb1%2FhItvJj3OfRqgasHD5I%2FuKLXpUgFhWcg9URcwRhYcuRTO%2Fd6mQphIdTDK8Zoqm6rK64G%2Fwae9ji8T8SgIuV7kKVbjUz7lEEEZbirTfppNjTW4fHLi7S3GZvryZKjb8gDb9%2BzgOCZtYG0bXJvaZgLKImNxZFevDg4jolax7yQqy9TsO20n8akQOyZ%2BFCr5Rf0hULDAUZZK2G%2FI5cnmtROU%2BkUh0v9WQzD1icozNEu%2Fh8f7XBtIT9qUh0thQp9if6zUAEa5%2FvukWICO66PgILMAAx52DimEKwp&ty=p">
+                <div class="img-wrapper">
+                    <img
+                    src="https://files.deepseeksvc.com/api/file?file_id=3a53c326-47c3-4ed1-a5b4-916a5b1326fc&state=YYxy25JL70obIDt%2Bvfd4EeQ6PPqD6ZHJhqIoCacL7B0jvgG3dP2tRMvADfiJYA%2FpsvVZhSSimsF9Rro5aJX0Vmb1%2FhItvJj3OfRqgasHD5I%2FuKLXpUgFhWcg9URcwRhYcuRTO%2Fd6mQphIdTDK8Zoqm6rK64G%2Fwae9ji8T8SgIuV7kKVbjUz7lEEEZbirTfppNjTW4fHLi7S3GZvryZKjb8gDb9%2BzgOCZtYG0bXJvaZgLKImNxZFevDg4jolax7yQqy9TsO20n8akQOyZ%2BFCr5Rf0hULDAUZZK2G%2FI5cnmtROU%2BkUh0v9WQzD1icozNEu%2Fh8f7XBtIT9qUh0thQp9if6zUAEa5%2FvukWICO66PgILMAAx52DimEKwp&ty=p"
+                    alt="刘伯承元帅铜像"
+                    loading="lazy"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                    >
+                    <div class="img-fallback" style="display:none; position:absolute; inset:0;">
+                        <span>
+                            <span class="fallback-icon">🎖️</span>
+                            刘帅铜像
+                        </span>
+                    </div>
+                    <div class="img-zoom-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+                <div class="liushuai-info">
+                    <span class="liushuai-badge">🏅 标志性建筑</span>
+                    <div class="liushuai-name">刘伯承元帅铜像</div>
+                    <div class="liushuai-desc">
+                        刘伯承（1892—1986），重庆开州人，中华人民共和国元帅。<br>铜像立于校园内，激励一代代开中学子砥砺前行。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 校园景观：校道 & 桂亭 -->
+            <div class="section-title fade-in">
+                <span class="icon-dot"></span>
+                <span class="title-text">校园景观</span>
+                <span class="title-line"></span>
+            </div>
+            <div class="grid-2">
+                <div class="image-card fade-in" data-lightbox-img="https://files.deepseeksvc.com/api/file?file_id=586d551e-c056-4a62-b4d3-b95ac1196dbd&state=bziRgXDt%2Fp38VHmUQ2RKk0EUVHqnwPK9W%2FbCncYUo%2FMXTS9jow3M5TJx7kQVL4IrowcCcCHhD8AScCi9ZC07sf3D4ZvoFrvqwVtGPZFlbPfpiIqrE0Zb61JIoFk627W1J%2FFCctPQBT%2F%2BorqujWRy6nwSLhDYrk2Qptf8MjUWZp5GRQkeUCLvUwJFALGpjFKkp4HhSF5Z%2FiZIE71zNskbZLxZjGiF76WH1ppqJ2pgzCznpTiMzvvs4KODWuHXTS6vlhOGTuGqaM4Ysf1LduPiMsHM0SgMzkM00ue19u6FXozG5y43CYa1jk08A3G5pR9e09AR83BLYC9hryckRp88iIXfWmigcRBKAlXtQ%2FAaBN9G1vzr7%2F22kPvd&ty=t">
+                    <div class="img-wrapper">
+                        <img
+                        src="https://files.deepseeksvc.com/api/file?file_id=586d551e-c056-4a62-b4d3-b95ac1196dbd&state=bziRgXDt%2Fp38VHmUQ2RKk0EUVHqnwPK9W%2FbCncYUo%2FMXTS9jow3M5TJx7kQVL4IrowcCcCHhD8AScCi9ZC07sf3D4ZvoFrvqwVtGPZFlbPfpiIqrE0Zb61JIoFk627W1J%2FFCctPQBT%2F%2BorqujWRy6nwSLhDYrk2Qptf8MjUWZp5GRQkeUCLvUwJFALGpjFKkp4HhSF5Z%2FiZIE71zNskbZLxZjGiF76WH1ppqJ2pgzCznpTiMzvvs4KODWuHXTS6vlhOGTuGqaM4Ysf1LduPiMsHM0SgMzkM00ue19u6FXozG5y43CYa1jk08A3G5pR9e09AR83BLYC9hryckRp88iIXfWmigcRBKAlXtQ%2FAaBN9G1vzr7%2F22kPvd&ty=t"
+                        alt="开州中学校道"
+                        loading="lazy"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="img-fallback" style="display:none; position:absolute; inset:0;">
+                            <span>
+                                <span class="fallback-icon">🌳</span>
+                                校道
+                            </span>
+                        </div>
+                        <div class="img-zoom-icon">
+                            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        </div>
+                    </div>
+                    <div class="img-caption">校园林荫校道</div>
+                </div>
+                <div class="image-card fade-in" data-lightbox-img="https://files.deepseeksvc.com/api/file?file_id=bfeddac0-914a-4730-b0cf-e97684df9548&state=UoWjcW9lvxCrp4Ij6p8kVZ0WZ3G4a40B%2BFT8LkbJSuy3Z04ukYXebShIC%2FvpLjw9NYJMINdGeS2jNbCyfuYPVrf0H8UElVHzYqbeysb6LnnRCkrGidCT%2BgawVK%2FohaRxxIrtD8o%2BwH%2BvBtkOy9ITD48guU3XL7%2FTCpr1Fg%2BCdDNvSXXY3vsVUaMjOXQ8yt3NNfLXRRfI9yJ%2FEwHEADLGyOt5Fa2KiGa%2FODs3QKHnQXKCOZ2w%2F2mCFCg7hJodQzBlX49xGxA9cEiqRIJ7U1Fzd2bUFQkykhvZq7f0D%2Fga1iCEJLM5MLmwRahK7YRR2uRh2InpnUQGh1MTiMWnYgNyG%2Bxc8yPdJCTi6eFONnVN9vcPqOB6l5OFrBoX&ty=p">
+                    <div class="img-wrapper">
+                        <img
+                        src="https://files.deepseeksvc.com/api/file?file_id=bfeddac0-914a-4730-b0cf-e97684df9548&state=UoWjcW9lvxCrp4Ij6p8kVZ0WZ3G4a40B%2BFT8LkbJSuy3Z04ukYXebShIC%2FvpLjw9NYJMINdGeS2jNbCyfuYPVrf0H8UElVHzYqbeysb6LnnRCkrGidCT%2BgawVK%2FohaRxxIrtD8o%2BwH%2BvBtkOy9ITD48guU3XL7%2FTCpr1Fg%2BCdDNvSXXY3vsVUaMjOXQ8yt3NNfLXRRfI9yJ%2FEwHEADLGyOt5Fa2KiGa%2FODs3QKHnQXKCOZ2w%2F2mCFCg7hJodQzBlX49xGxA9cEiqRIJ7U1Fzd2bUFQkykhvZq7f0D%2Fga1iCEJLM5MLmwRahK7YRR2uRh2InpnUQGh1MTiMWnYgNyG%2Bxc8yPdJCTi6eFONnVN9vcPqOB6l5OFrBoX&ty=p"
+                        alt="开州中学桂亭"
+                        loading="lazy"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="img-fallback" style="display:none; position:absolute; inset:0;">
+                            <span>
+                                <span class="fallback-icon">🏯</span>
+                                桂亭
+                            </span>
+                        </div>
+                        <div class="img-zoom-icon">
+                            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        </div>
+                    </div>
+                    <div class="img-caption">桂亭 · 休憩读书处</div>
+                </div>
+            </div>
+
+            <!-- 教学设施：科创楼 & 运动场 -->
+            <div class="section-title fade-in">
+                <span class="icon-dot"></span>
+                <span class="title-text">教学设施</span>
+                <span class="title-line"></span>
+            </div>
+            <div class="grid-2">
+                <div class="image-card fade-in" data-lightbox-img="https://files.deepseeksvc.com/api/file?file_id=3098086e-c61e-4f2d-8611-47eb7d23834f&state=0uzY%2BUnEwBPg6POEGILH5DIc99akDXH4NDQVCFotBD9u1bwS0uo9f0eCNlkGvFy3WhYKWLZbfyaBz0SIEk%2BrLeN7x67Rv2Mb7Y3J7JnC%2FrIUTdKnhVK32tu%2Bc978eW8q5U6Q9m35fi9Txc6QJNxA8SybPlUXZWUfyzGsSp9LFD%2FAXn42FX%2FeS16xdKUEv2Cmtm%2FCjfUj3%2FYJgLdqMcCZcXFKxNRRGN2sVnQetiZt9x49dR0raU9PZRSstY4%2BHycpCFNoPQttdMoKPJ4KN9tsZ0IgmPhl6nv%2FTaao8T%2FqKLubgzx3BQg%2FdRjDGdvbwBcB9MvZ3xYOVtBSBYg4%2F0FRm4sWJriPtaJgjvlQr2l%2BWD7BwU8RGPvZ8riv&ty=t">
+                    <div class="img-wrapper">
+                        <img
+                        src="https://files.deepseeksvc.com/api/file?file_id=3098086e-c61e-4f2d-8611-47eb7d23834f&state=0uzY%2BUnEwBPg6POEGILH5DIc99akDXH4NDQVCFotBD9u1bwS0uo9f0eCNlkGvFy3WhYKWLZbfyaBz0SIEk%2BrLeN7x67Rv2Mb7Y3J7JnC%2FrIUTdKnhVK32tu%2Bc978eW8q5U6Q9m35fi9Txc6QJNxA8SybPlUXZWUfyzGsSp9LFD%2FAXn42FX%2FeS16xdKUEv2Cmtm%2FCjfUj3%2FYJgLdqMcCZcXFKxNRRGN2sVnQetiZt9x49dR0raU9PZRSstY4%2BHycpCFNoPQttdMoKPJ4KN9tsZ0IgmPhl6nv%2FTaao8T%2FqKLubgzx3BQg%2FdRjDGdvbwBcB9MvZ3xYOVtBSBYg4%2F0FRm4sWJriPtaJgjvlQr2l%2BWD7BwU8RGPvZ8riv&ty=t"
+                        alt="开州中学科创楼"
+                        loading="lazy"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="img-fallback" style="display:none; position:absolute; inset:0;">
+                            <span>
+                                <span class="fallback-icon">🔬</span>
+                                科创楼
+                            </span>
+                        </div>
+                        <div class="img-zoom-icon">
+                            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        </div>
+                    </div>
+                    <div class="img-caption">科创实验楼</div>
+                </div>
+                <div class="image-card fade-in" data-lightbox-img="https://files.deepseeksvc.com/api/file?file_id=212e2430-78a9-4597-8bf9-bc6d14401117&state=0Rjp7e75CFcWlx2MTAFY3c7WGMuCKrbSGii8aVEnnHl5rmiMezGVmYBOsi1lG1eyRZX8O%2FzsthlnFq0gP6LYAFO3sTgDGByyziRJmhFeDQ0mpD4JYacg4SCdPs2gGHwMFIp2RcEyNEjikek883e2CJQv7b83Ak9f2eT4PIRcCLR7ZTllQnwxADXCbVjNFxE4UnUC9Bba2RQ4ABB9Hity4CCxB8%2BdtWQS6SubBLBAZBQ2%2FhO60vTegq43xND1xHx8%2FwmHu66owS39J0aWI8eREEhy8KXmwGGro2gWFQdYJ1syDKNkEr8n6vCU7LEP8wbjRpKAQHk%2Fi%2B5mSlikEvgcNwxT8ej%2B148r9pn9ApaajGukqHbYZp7AiORY&ty=t">
+                    <div class="img-wrapper">
+                        <img
+                        src="https://files.deepseeksvc.com/api/file?file_id=212e2430-78a9-4597-8bf9-bc6d14401117&state=0Rjp7e75CFcWlx2MTAFY3c7WGMuCKrbSGii8aVEnnHl5rmiMezGVmYBOsi1lG1eyRZX8O%2FzsthlnFq0gP6LYAFO3sTgDGByyziRJmhFeDQ0mpD4JYacg4SCdPs2gGHwMFIp2RcEyNEjikek883e2CJQv7b83Ak9f2eT4PIRcCLR7ZTllQnwxADXCbVjNFxE4UnUC9Bba2RQ4ABB9Hity4CCxB8%2BdtWQS6SubBLBAZBQ2%2FhO60vTegq43xND1xHx8%2FwmHu66owS39J0aWI8eREEhy8KXmwGGro2gWFQdYJ1syDKNkEr8n6vCU7LEP8wbjRpKAQHk%2Fi%2B5mSlikEvgcNwxT8ej%2B148r9pn9ApaajGukqHbYZp7AiORY&ty=t"
+                        alt="开州中学运动场"
+                        loading="lazy"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="img-fallback" style="display:none; position:absolute; inset:0;">
+                            <span>
+                                <span class="fallback-icon">🏟️</span>
+                                运动场
+                            </span>
+                        </div>
+                        <div class="img-zoom-icon">
+                            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        </div>
+                    </div>
+                    <div class="img-caption">标准化运动场</div>
+                </div>
+            </div>
+
+            <!-- 校训 & 办学理念 -->
+            <div class="section-title fade-in">
+                <span class="icon-dot"></span>
+                <span class="title-text">学校精神</span>
+                <span class="title-line"></span>
+            </div>
+            <div class="spirit-section">
+                <!-- 校训 -->
+                <div class="spirit-card motto fade-in" data-lightbox-img="https://files.deepseeksvc.com/api/file?file_id=123f5990-b83e-44af-a570-8fcd657cc8ea&state=RlcsZboP1cAtSGoY34jPxj3LkVMu2Xeg25IkvbCKxbclx%2FKPSYIs2ZZZ0odWmvrX467HlIm7QmCXC0AnpcFE9FDtRDwrXhiEn%2BmhKSfbikD0AtLqlW05SK0fXvi4HUixZUrx8r8U4iwjwIuDnViy4ORcWl51GNA6udInUBQ7MVbk9LeThNKYm%2Bp3IsmJG%2FHbFVDj4sWcc1QrNMjjjJo2yfr%2FmYMJmB%2BffqHm3PeOTWL0%2BN194qsh3WK8DlsEkADtL5vioT18y33abTcrZdGZbLOEcEgFKHYtegdC%2FkE8cAkUGu5Ni06GyMKDSc8xC5Zuf%2BXTE39AUBaEkkeqO8u1M0mhPTiJH01bBoLeToR12wFfTxEQP4nGsXKm&ty=p">
+                    <div class="spirit-img-wrap">
+                        <img
+                        src="https://files.deepseeksvc.com/api/file?file_id=123f5990-b83e-44af-a570-8fcd657cc8ea&state=RlcsZboP1cAtSGoY34jPxj3LkVMu2Xeg25IkvbCKxbclx%2FKPSYIs2ZZZ0odWmvrX467HlIm7QmCXC0AnpcFE9FDtRDwrXhiEn%2BmhKSfbikD0AtLqlW05SK0fXvi4HUixZUrx8r8U4iwjwIuDnViy4ORcWl51GNA6udInUBQ7MVbk9LeThNKYm%2Bp3IsmJG%2FHbFVDj4sWcc1QrNMjjjJo2yfr%2FmYMJmB%2BffqHm3PeOTWL0%2BN194qsh3WK8DlsEkADtL5vioT18y33abTcrZdGZbLOEcEgFKHYtegdC%2FkE8cAkUGu5Ni06GyMKDSc8xC5Zuf%2BXTE39AUBaEkkeqO8u1M0mhPTiJH01bBoLeToR12wFfTxEQP4nGsXKm&ty=p"
+                        alt="开州中学校训"
+                        loading="lazy"
+                        onerror="this.style.display='none';"
+                        >
+                    </div>
+                    <div class="spirit-text-overlay">
+                        <div class="spirit-label">校 训</div>
+                        <div class="spirit-content">厚德博学 · 自强不息</div>
+                        <div class="spirit-decorative-line"></div>
+                    </div>
+                </div>
+                <!-- 办学理念 -->
+                <div class="spirit-card philosophy fade-in" data-lightbox-img="https://files.deepseeksvc.com/api/file?file_id=8b99fd15-c656-4e0e-9fd7-a0c5ace1e850&state=%2Fx9vgMgAhhXlL8mnxdvhpTGmWmka3SsSkUGukgM0PTsB20j87TGM0NXTqwQJ%2FFH7gA1a3UiFUD5ewIePgK10dpzoa0fdbPk%2FHSkMbUhXVKZvVCYHG2Up0SvVv8Jdk95zk99llGPED49Ot4XFw%2FQaKjWtCEylFNfNHeQgqtrVQzB3tF9%2Fqc5dvXiOxv8u4ukHMgohLbima4hhjbFiyr6Y8kQcFiZuxBJwmbdzAV0VvHjkK2eue2Q%2Be8zzWIhkKYDxr%2FJnUeED8AmuEOLu0SaEVeou6m8%2FQ3IT34NYpgQMuBS7rwpBhOerllo4ENiM8AGqm71QfMC%2F7XdM%2FVRKobE%2BPGtm6mopkdf1wmlPYqnYFGeWjlE62Q7GvXgH&ty=p">
+                    <div class="spirit-img-wrap">
+                        <img
+                        src="https://files.deepseeksvc.com/api/file?file_id=8b99fd15-c656-4e0e-9fd7-a0c5ace1e850&state=%2Fx9vgMgAhhXlL8mnxdvhpTGmWmka3SsSkUGukgM0PTsB20j87TGM0NXTqwQJ%2FFH7gA1a3UiFUD5ewIePgK10dpzoa0fdbPk%2FHSkMbUhXVKZvVCYHG2Up0SvVv8Jdk95zk99llGPED49Ot4XFw%2FQaKjWtCEylFNfNHeQgqtrVQzB3tF9%2Fqc5dvXiOxv8u4ukHMgohLbima4hhjbFiyr6Y8kQcFiZuxBJwmbdzAV0VvHjkK2eue2Q%2Be8zzWIhkKYDxr%2FJnUeED8AmuEOLu0SaEVeou6m8%2FQ3IT34NYpgQMuBS7rwpBhOerllo4ENiM8AGqm71QfMC%2F7XdM%2FVRKobE%2BPGtm6mopkdf1wmlPYqnYFGeWjlE62Q7GvXgH&ty=p"
+                        alt="开州中学办学理念"
+                        loading="lazy"
+                        onerror="this.style.display='none';"
+                        >
+                    </div>
+                    <div class="spirit-text-overlay">
+                        <div class="spirit-label">办学理念</div>
+                        <div class="spirit-content">一切为了学生自主发展</div>
+                        <div class="spirit-decorative-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 页脚 -->
+            <div class="footer fade-in">
+                <div class="footer-line"></div>
+                重庆市开州中学 · 百年名校<br>刘伯承元帅故乡 · 厚德博学 自强不息
+            </div>
+
+        </div><!-- /content -->
+    </div><!-- /main-container -->
+
+    <!-- ==================== Lightbox 图片查看器 ==================== -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="关闭">✕</button>
+        <img src="" alt="预览图片" id="lightboxImg">
+        <span class="lightbox-hint">点击任意位置关闭</span>
+    </div>
+
+    <script>
+        (function() {
+            // ============ Lightbox 功能 ============
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxClose = document.getElementById('lightboxClose');
+
+            let currentLightboxSrc = '';
+
+            function openLightbox(imgSrc) {
+                if (!imgSrc) return;
+                currentLightboxSrc = imgSrc;
+                lightboxImg.src = imgSrc;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                // 延迟清除src，保留过渡动画
+                setTimeout(() => {
+                    if (!lightbox.classList.contains('active')) {
+                        lightboxImg.src = '';
+                        currentLightboxSrc = '';
+                    }
+                }, 350);
+            }
+
+            // 点击带有 data-lightbox-img 的卡片打开灯箱
+            document.querySelectorAll('[data-lightbox-img]').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    // 如果点击的是图片本身或wrapper内的元素，打开灯箱
+                    const imgSrc = this.getAttribute('data-lightbox-img');
+                    if (imgSrc) {
+                        openLightbox(imgSrc);
+                    }
+                });
+            });
+
+            // 也支持直接点击图片卡片中的img标签
+            document.querySelectorAll('.image-card .img-wrapper img, .liushuai-card .img-wrapper img, .spirit-card .spirit-img-wrap img').forEach(
+                img => {
+                    img.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const card = this.closest('[data-lightbox-img]');
+                        if (card) {
+                            const imgSrc = card.getAttribute('data-lightbox-img');
+                            if (imgSrc) openLightbox(imgSrc);
+                        }
+                    });
+                });
+
+            // 关闭按钮
+            lightboxClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeLightbox();
+            });
+
+            // 点击遮罩关闭
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // ESC 关闭
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+
+            // ============ 滚动渐显动画 (Intersection Observer) ============
+            const fadeEls = document.querySelectorAll('.fade-in');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -30px 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            fadeEls.forEach(el => observer.observe(el));
+
+            // ============ 图片加载错误全局处理 ============
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('error', function() {
+                    // 尝试使用备用样式
+                    const fallback = this.nextElementSibling;
+                    if (fallback && fallback.classList.contains('img-fallback')) {
+                        this.style.display = 'none';
+                        fallback.style.display = 'flex';
+                    }
+                });
+                // 对于已经缓存的图片，检查是否加载成功
+                if (img.complete && img.naturalWidth === 0) {
+                    const fallback = img.nextElementSibling;
+                    if (fallback && fallback.classList.contains('img-fallback')) {
+                        img.style.display = 'none';
+                        fallback.style.display = 'flex';
+                    }
+                }
+            });
+
+            // ============ 平滑滚动到Hero（双击标题时） ============
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+                heroTitle.addEventListener('dblclick', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            console.log('🏫 重庆市开州中学 H5 页面已就绪');
+            console.log('   - 校园航拍全景');
+            console.log('   - 刘伯承元帅铜像');
+            console.log('   - 校道 · 桂亭 · 科创楼 · 运动场');
+            console.log('   - 校训：厚德博学 · 自强不息');
+            console.log('   - 办学理念：一切为了学生自主发展');
+            console.log('   💡 点击图片可放大查看 | 点击遮罩或按ESC关闭');
+        })();
+    </script>
+</body>
+</html>
